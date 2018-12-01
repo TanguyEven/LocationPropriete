@@ -13,6 +13,8 @@ import basiques.Adresse;
  */
 public class Propriete {
     
+    private String nom;
+    private int id;
     private int loyer;
     public Adresse adresse;
     //private PhotoPropriete photo; Comment implementer une photo?
@@ -25,7 +27,9 @@ public class Propriete {
     
     private String description;
 
-    public Propriete(int loyer, Adresse adresse, int nb_chambre, int nb_sdb, int nb_autres_salles, String description) {
+    public Propriete(String nom, int id, int loyer, Adresse adresse, int nb_chambre, int nb_sdb, int nb_autres_salles, String description) {
+        this.nom = nom;
+        this.id = id;
         this.loyer = loyer;
         this.adresse = adresse;
         this.nb_chambre = nb_chambre;
@@ -34,9 +38,22 @@ public class Propriete {
         this.description = description;
     }
 
-    
- 
-    
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getLoyer() {
         return loyer;
     }
@@ -84,7 +101,6 @@ public class Propriete {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    
+
     
 }
