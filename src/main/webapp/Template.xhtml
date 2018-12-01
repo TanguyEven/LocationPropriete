@@ -6,21 +6,34 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="default.css" library="css"/>
+        <h:outputStylesheet name="cssLayout.css" library="css"/>
         <title>Facelets Template</title>
     </h:head>
 
     <h:body>
 
         <div id="top" class="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top">
+                <ui:include src="banner.xhtml" />
+            </ui:insert>
+            
+            
         </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
+    
+        <div>
+                <div id="left">
+                    <ui:insert name="left">
+                        <ui:include src="menu.xhtml" />
+                    </ui:insert>
+                    <h:panelGrid  style="margin: auto" cellpadding="2" cellspacing="2" columns="3">
+                        <h:graphicImage id="bimg2" value="resources/images/maison.png" width="20" height="20" />
+                    </h:panelGrid>
+                </div>
+                <div id="content" class="left_content">
+                    <ui:insert name="content">Content</ui:insert>
+                    ici cest le content
+                </div>
         </div>
-
     </h:body>
-
 </html>
