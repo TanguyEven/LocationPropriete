@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package opr_classes_de_base;
 
 /**
  *
- * @author Tanguy
- * lalalalala
+ * @author crina
  */
-public class NewClass {
+public class Client extends Utilisateur{
     
-    private int num;
+    public Client(int id, String nom, String prenom) {
+        super(id, nom, prenom);
+    }
     
 }
