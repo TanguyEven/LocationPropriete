@@ -11,7 +11,7 @@ import basiques.Adresse;
  *
  * @author crina
  */
-public class Proprietes {
+public class Propriete {
     
     private int loyer;
     public Adresse adresse;
@@ -22,14 +22,19 @@ public class Proprietes {
     private int nb_sdb;
     private int nb_autres_salles;
     //PAS SUR ?? private ?...? location; voir diagramme UML pour comprendre
+    
+    private String description;
 
-    public Proprietes(int loyer, Adresse adresse, int nb_chambre, int nb_sdb, int nb_autres_salles) {
+    public Propriete(int loyer, Adresse adresse, int nb_chambre, int nb_sdb, int nb_autres_salles, String description) {
         this.loyer = loyer;
         this.adresse = adresse;
         this.nb_chambre = nb_chambre;
         this.nb_sdb = nb_sdb;
         this.nb_autres_salles = nb_autres_salles;
+        this.description = description;
     }
+
+    
  
     
     public int getLoyer() {
@@ -70,6 +75,14 @@ public class Proprietes {
 
     public void setNb_autres_salles(int nb_autres_salles) {
         this.nb_autres_salles = nb_autres_salles;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     
