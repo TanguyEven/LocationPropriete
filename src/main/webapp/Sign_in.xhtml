@@ -44,9 +44,10 @@
                     </h:inputSecret>
                     <h:message id="passwdMsg" for="passwd" errorStyle="color:red; display:block" styleClass="errorMessage"/>
                  
-                    <h:selectOneMenu value="#{localeSwitch.language}" onchange="submit()"
-                                     valueChangeListener="#{localeSwitch.localeChanged}">
-                        <f:selectItems value="#{localeSwitch.countries}" /> 
+                    <h:selectOneMenu value = "#{signInBean.role}"> 
+                        <f:selectItem itemValue = "client" itemLabel = "Client" /> 
+                        <f:selectItem itemValue = "agent" itemLabel = "Agent" /> 
+                        <f:selectItem itemValue = "proprietaire" itemLabel = "Protpriétaire" /> 
                     </h:selectOneMenu> 
                     
                     </h:panelGrid>
