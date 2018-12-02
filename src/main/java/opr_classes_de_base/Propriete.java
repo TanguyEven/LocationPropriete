@@ -23,7 +23,6 @@ public class Propriete {
     private int nb_chambre;
     private int nb_sdb;
     private int nb_autres_salles;
-    //PAS SUR ?? private ?...? location; voir diagramme UML pour comprendre
     
     private String description;
 
