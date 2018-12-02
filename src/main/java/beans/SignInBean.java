@@ -19,6 +19,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import persistence.Agent;
+import persistence.Client;
+import persistence.Proprietaire;
 import persistence.Utilisateur;
 
 /**
@@ -34,7 +37,7 @@ public class SignInBean {
     private String birthDate;
     private String city;
     private String password;
-    private String role;
+    private int role;
 
     private EntityManager em;
     @Resource
@@ -93,11 +96,11 @@ public class SignInBean {
         this.password = password;
     }
     
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
@@ -118,13 +121,12 @@ public class SignInBean {
     
     public void addUser() {
         try {
-            Utilisateur acc = new Utilisateur();
+            if (role==3){
+            Proprietaire acc = new Proprietaire();
             acc.setUserId(userId);
-            acc.setFirstname(firstname);
-            acc.setLastname(lastname);
-            acc.setCity(city);
-            acc.setBirthDate(Date.valueOf(birthDate));
-            acc.setRole(role);
+            acc.setprenom(firstname);
+            acc.setnom(lastname);
+            acc.setdate_naissance(Date.valueOf(birthDate));
             // randomly generate salt value
             final Random r = new SecureRandom();
             byte[] salt = new byte[32];
@@ -138,6 +140,51 @@ public class SignInBean {
             acc.setPassword(passhash);
             persist(acc);
             status="New Account Created Fine";
+            }
+            
+            if(role==2){
+            Agent acc = new Agent();
+            acc.setUserId(userId);
+            acc.setprenom(firstname);
+            acc.setnom(lastname);
+            acc.setdate_naissance(Date.valueOf(birthDate));
+            // randomly generate salt value
+            final Random r = new SecureRandom();
+            byte[] salt = new byte[32];
+            r.nextBytes(salt);
+            String saltString = new String(salt, "UTF-8");
+            // hash password using SHA-256 algorithm
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            String saltedPass = saltString+password;
+            byte[] passhash = digest.digest(saltedPass.getBytes("UTF-8"));
+            acc.setSalt(salt);
+            acc.setPassword(passhash);
+            persist(acc);
+            status="New Account Created Fine";
+                
+            }
+            
+            if(role==1){
+                Client acc = new Client();
+            acc.setUserId(userId);
+            acc.setprenom(firstname);
+            acc.setnom(lastname);
+            acc.setdate_naissance(Date.valueOf(birthDate));
+            // randomly generate salt value
+            final Random r = new SecureRandom();
+            byte[] salt = new byte[32];
+            r.nextBytes(salt);
+            String saltString = new String(salt, "UTF-8");
+            // hash password using SHA-256 algorithm
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            String saltedPass = saltString+password;
+            byte[] passhash = digest.digest(saltedPass.getBytes("UTF-8"));
+            acc.setSalt(salt);
+            acc.setPassword(passhash);
+            persist(acc);
+            status="New Account Created Fine";
+            }
+            
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | RuntimeException ex ) {
             Logger.getLogger(SignInBean.class.getName()).log(Level.SEVERE, null, ex);
             status="Error While Creating New Account";

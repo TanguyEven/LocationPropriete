@@ -5,11 +5,15 @@
  */
 package basiques;
 
+import java.io.Serializable;
+
+
+
 /**
  *
  * @author crina
  */
-public class Adresse {
+public class Adresse implements Serializable{
     
     private int numero;
     private String rue;
