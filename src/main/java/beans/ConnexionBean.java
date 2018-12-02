@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpSession;
-import persistence.UserAccount;
+import persistence.Utilisateur;
 
 /**
  *
@@ -75,7 +75,7 @@ public class ConnexionBean {
     
     
         public void login() {
-         UserAccount acc = em.find(UserAccount.class, name);
+         Utilisateur acc = em.find(Utilisateur.class, name);
          if (acc != null) {
              try {
                  // check password
@@ -91,26 +91,51 @@ public class ConnexionBean {
                      status="Login Successful - " + "Welcome " + acc.getFirstname(); 
                       ExternalContext ec = FacesContext.getCurrentInstance()
                                 .getExternalContext();
-                      if(acc.getRole() == "Client")
-                          
-                      else if(acc.getRole()== "Agent")
-                              
-                      else if(acc.getRole() == "Proprietaire")
-                              
-                              else if(acc.getRole() == "Admin")
-                       
-                          
-                          
-                          
-                          
-                          
-                        try {
+                      if(acc.getRole() == "Client"){
+                           try {
                             ec.redirect(ec.getRequestContextPath()
-                                    + "/faces/protected/admin.xhtml");
+                                    + "/faces/Page_client/Page_accueil_client.xhtml");
                         } catch (IOException e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
+                      }                          
+                      else if(acc.getRole()== "Agent")
+                      {
+                           try {
+                            ec.redirect(ec.getRequestContextPath()
+                                    + "/faces/Page_agent/Page_accueil_agent.xhtml");
+                        } catch (IOException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                      }                              
+                      else if(acc.getRole() == "Proprietaire")
+                      {
+                               try {
+                            ec.redirect(ec.getRequestContextPath()
+                                    + "/faces/Page_proprietaire/Page_accueil_proprietaire.xhtml");
+                        } catch (IOException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                      }else if(acc.getRole() == "Admin"){
+                          
+                           try {
+                            ec.redirect(ec.getRequestContextPath()
+                                    + "/faces/Page_admin/Page_accueil_admin.xhtml");
+                        } catch (IOException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                          
+                      }                 
+                          
+                          
+                          
+                          
+                          
+                       
                  } else {
                     status="Invalid Login, Please Try again"; 
                  }
