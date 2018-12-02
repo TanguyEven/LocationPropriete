@@ -44,14 +44,21 @@
                     </h:inputSecret>
                     <h:message id="passwdMsg" for="passwd" errorStyle="color:red; display:block" styleClass="errorMessage"/>
                  
-                    <h:selectOneMenu value = "#{signInBean.role}"> 
-                        <f:selectItem itemValue = "client" itemLabel = "Client" /> 
-                        <f:selectItem itemValue = "agent" itemLabel = "Agent" /> 
-                        <f:selectItem itemValue = "proprietaire" itemLabel = "Protpriétaire" /> 
+                    
+                    <input type="checkbox" class="radio" name="role" value="ON" />
+                            <label for="subscribeNews">Souhaitez-vous vous abonner à la newsletter ?</label>
+                            <input type="checkbox" class="radio" name="role" value="ON" />
+                            <label for="subscribeNews">Souhaitez-vous vous abonner à la newsletter ?</label>
+                    
+                    
+                    <h:selectOneMenu value = "#{signInBean.role}" onchange="submit()"> 
+                        <f:selectItem itemValue = "1" itemLabel = "Client" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "Agent" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "Protpriétaire" /> 
                     </h:selectOneMenu> 
                     
                     </h:panelGrid>
-                <h:commandButton value="Add" type="command"  actionListener="#{signInBean.addUser}">
+                <h:commandButton value="Add" type="command"  actionListener="#{signInBean.addUser}" >
                    <f:ajax execute="id fname lname birthdate city passwd" 
                            render="status idMsg fnameMsg lnameMsg birthdateMsg cityMsg passwdMsg"/>
                 </h:commandButton>
