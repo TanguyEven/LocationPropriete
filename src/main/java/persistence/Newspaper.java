@@ -3,28 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package opr_classes_de_base;
+package persistence;
 
 /**
  *
  * @author crina
  */
-public class Service {
+public class Newspaper {
     
-    private int id;
     private String nom;
 
-    public Service(int id, String nom) {
-        this.id = id;
+    public Newspaper(String nom) {
         this.nom = nom;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNom() {
@@ -34,7 +24,6 @@ public class Service {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
     
     
 }

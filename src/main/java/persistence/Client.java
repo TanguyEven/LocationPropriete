@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package opr_classes_de_base;
+package persistence;
 
 /**
  *
@@ -11,8 +11,7 @@ package opr_classes_de_base;
  */
 public class Client extends Utilisateur{
     
-    public Client(int id, String nom, String prenom) {
-        super(id, nom, prenom);
+    public Client(){
     }
     
 }

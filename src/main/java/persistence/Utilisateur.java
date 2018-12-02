@@ -11,18 +11,12 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import basiques.Adresse;
 
-/**
- *
- * @author ssome
- */
 @Entity
-public class UserAccount implements Serializable {
+public class Utilisateur implements Serializable {
     private static long serialVersionUID = 1L;
 
-    /**
-     * @return the serialVersionUID
-     */
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -35,11 +29,10 @@ public class UserAccount implements Serializable {
     }
     @Id
     private String userId;
-    private String firstname;
-    private String lastname;
-    private Date birthDate;
-    private String city;
-    private String role;
+    private String prenom;
+    private String nom;
+    private Date date_naissance;
+    private Adresse adresse;
     @Lob
     private byte[] password; // salted + hashed password
     @Lob
@@ -60,10 +53,10 @@ public class UserAccount implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UserAccount)) {
+        if (!(object instanceof Utilisateur)) {
             return false;
         }
-        UserAccount other = (UserAccount) object;
+        Utilisateur other = (Utilisateur) object;
         if ((this.getUserId() == null && other.getUserId() != null) || (this.getUserId() != null && !this.userId.equals(other.userId))) {
             return false;
         }
@@ -72,67 +65,85 @@ public class UserAccount implements Serializable {
 
     @Override
     public String toString() {
-        return "persistence.UserAccount[ id=" + userId + " ]";
+        return "persistence.Utilisateur[ id=" + userId + " ]";
     }
 
+    /**
+     * @param userId the userId to set
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public String getFirstname() {
-        return firstname;
+    /**
+     * @return the firstname
+     */
+    public String getprenom() {
+        return prenom;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    /**
+     * @param firstname the prenom to set
+     */
+    public void setprenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public String getLastname() {
-        return lastname;
+    /**
+     * @return the nom
+     */
+    public String getnom() {
+        return nom;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    /**
+     * @param nom the lastname to set
+     */
+    public void setnom(String nom) {
+        this.nom = nom;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    /**
+     * @return the birthDate
+     */
+    public Date getdate_naissance() {
+        return date_naissance;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    /**
+     * @param birthDate the birthDate to set
+     */
+    public void setdate_naissance(Date date_naissance) {
+        this.date_naissance = date_naissance;
     }
 
-    public String getCity() {
-        return city;
-    }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
+    /**
+     * @return the password
+     */
     public byte[] getPassword() {
         return password;
     }
 
+    /**
+     * @param password the password to set
+     */
     public void setPassword(byte[] password) {
         this.password = password;
     }
-
+    
+        /**
+     * @return the salt
+     */
     public byte[] getSalt() {
         return salt;
     }
 
+    /**
+     * @param salt the salt to set
+     */
     public void setSalt(byte[] salt) {
         this.salt = salt;
     }
-    
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }    
     
 }

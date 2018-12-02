@@ -19,7 +19,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import persistence.UserAccount;
+import persistence.Utilisateur;
 
 /**
  *
@@ -118,7 +118,7 @@ public class SignInBean {
     
     public void addUser() {
         try {
-            UserAccount acc = new UserAccount();
+            Utilisateur acc = new Utilisateur();
             acc.setUserId(userId);
             acc.setFirstname(firstname);
             acc.setLastname(lastname);

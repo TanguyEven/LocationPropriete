@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package opr_classes_de_base;
+package persistence;
 
 import basiques.Adresse;
 
