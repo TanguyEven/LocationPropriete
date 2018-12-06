@@ -1,18 +1,102 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
-        <ui:composition template="./Template.xhtml">
+        <ui:composition template="./../Template.xhtml">
 
             <ui:define name="top">
                 top
             </ui:define>
 
             <ui:define name="content">
-                content
+                <h1>Create New Account...</h1>
+                <f:view>
+                    <h:form>
+                    <h:panelGrid columns="3">
+                    <h:outputText value="Propriete Id"></h:outputText>
+                    <h:inputText id="id" value="#{propriete.Id}" required="true" requiredMessage="Entrer l'Id propriété">
+                    </h:inputText>
+                    <h:message id="idMsg" for="id" errorStyle="color:red; display:block"/>
+                    
+                    <h:outputText value="Annonce"></h:outputText>
+                    <h:inputText id="ann" value="#{propriete.annonce}" required="true" requiredMessage="Entrer le titre de l'annonce">
+                    </h:inputText>
+                    <h:message id="annMsg" for="ann" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="numero rue"></h:outputText>
+                    <h:inputText id="numrue" value="#{propriete.adresse.numero}" required="true" requiredMessage="Entrer le numéro de la rue">
+                    </h:inputText>
+                    <h:message id="numrueMsg" for="numrue" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="nom rue"></h:outputText>
+                    <h:inputText id="nomrue" value="#{propriete.adresse.rue}" required="true"  requiredMessage="Entrer le nom de la rue">
+                    </h:inputText>
+                    <h:message id="nomrueMsg" for="nomrue" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="ville"></h:outputText>
+                    <h:inputText id="ville" value="#{propriete.adresse.ville}" required="true" requiredMessage="Entrer la ville">
+                    </h:inputText>
+                    <h:message id="villeMsg" for="ville" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="code postal"></h:outputText>
+                    <h:inputText id="codpost" value="#{propriete.adresse.code_postal}" required="true" requiredMessage="Entrer le code postal">
+                    </h:inputText>
+                    <h:message id="codpostMsg" for="codpost" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="pays"></h:outputText>
+                    <h:inputText id="pays" value="#{propriete.adresse.etat}" required="true" requiredMessage="Entrer le pays">
+                    </h:inputText>
+                    <h:message id="paysMsg" for="pays" errorStyle="color:red; display:block" styleClass="errorMessage"/>
+                    
+                    <h:outputText value="Nombre de chambre"></h:outputText>
+                    <h:selectOneMenu value = "#{propriete.nb_chambre}" onchange="submit()"> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" />
+                        <f:selectItem itemValue = "4" itemLabel = "4+" />
+                    </h:selectOneMenu> 
+                    
+                    <h:outputText value="Nombre de salle de bain"></h:outputText>
+                    <h:selectOneMenu value = "#{propriete.nb_sdb}" onchange="submit()"> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3+" />
+                    </h:selectOneMenu> 
+                    
+                    <h:outputText value="Nombre d'autre pièce"></h:outputText>
+                    <h:selectOneMenu value = "#{propriete.autre_salle}" onchange="submit()"> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3+" />
+                    </h:selectOneMenu> 
+                    
+                    <h:outputText value="#{msg['description']}" />
+                    <h:inputTextarea id="descript" value="#{propriete.description}" rows="5" />
+                    <h:message id="descriptMsg" for="descript"/>
+                    
+                    
+                   
+                    
+                    </h:panelGrid>
+                <h:commandButton value="Add" type="command"  actionListener="#{signInBean.addUser}" >
+                   <f:ajax execute="id fname lname birthdate city passwd" 
+                           render="status idMsg fnameMsg lnameMsg birthdateMsg cityMsg passwdMsg"/>
+                </h:commandButton>
+                <h:commandButton value="Cancel" type="reset" />
+                
+                <div>
+                    <hr/>
+                    <hr/>
+               
+                </div>
+                    </h:form>
+                </f:view>
+
             </ui:define>
 
         </ui:composition>
