@@ -6,17 +6,24 @@
 package persistence;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author crina
  */
+@Entity
 public class Interview {
     
+    @Id
     private Date date;
     private enum preference {positif, nul, negatif};
     private String rapport; //ici faudrait importer un pdf ou quoi?? 
 
+    public Interview(){
+        
+    }
     public Interview(Date date, String rapport) {
         this.date = date;
         this.rapport = rapport;

@@ -5,15 +5,23 @@
  */
 package persistence;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author crina
  */
+@Entity
 public class Service {
     
+    @Id
     private int id;
     private String nom;
 
+    public Service(){
+        
+    }
     public Service(int id, String nom) {
         this.id = id;
         this.nom = nom;

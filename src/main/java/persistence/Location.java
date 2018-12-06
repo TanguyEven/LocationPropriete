@@ -5,15 +5,22 @@
  */
 package persistence;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author crina
  */
+@Entity
 public class Location {
     
+    @Id
     private int id_contrat;
     private int duree_mois;
-
+    public Location(){
+        
+    }
     public Location(int id_contrat, int duree_mois) {
         this.id_contrat = id_contrat;
         this.duree_mois = duree_mois;

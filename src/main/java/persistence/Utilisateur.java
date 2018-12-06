@@ -17,6 +17,10 @@ import basiques.Adresse;
 public class Utilisateur implements Serializable {
     private static long serialVersionUID = 1L;
 
+    
+    public Utilisateur(){
+        
+    }
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -31,7 +35,7 @@ public class Utilisateur implements Serializable {
     private String userId;
     private String prenom;
     private String nom;
-    private Date date_naissance;
+    private String date_naissance;
     private Adresse adresse;
     @Lob
     private byte[] password; // salted + hashed password
@@ -106,14 +110,14 @@ public class Utilisateur implements Serializable {
     /**
      * @return the birthDate
      */
-    public Date getdate_naissance() {
+    public String getdate_naissance() {
         return date_naissance;
     }
 
     /**
      * @param birthDate the birthDate to set
      */
-    public void setdate_naissance(Date date_naissance) {
+    public void setdate_naissance(String date_naissance) {
         this.date_naissance = date_naissance;
     }
 

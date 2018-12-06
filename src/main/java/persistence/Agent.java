@@ -17,6 +17,7 @@ import basiques.Adresse;
  *
  * @author Tanguy
  */
+@Entity
 public class Agent extends Utilisateur{
     
     private Agence agence;

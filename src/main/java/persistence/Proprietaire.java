@@ -6,14 +6,17 @@
 package persistence;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import javax.persistence.Entity;
 
 /**
  *
  * @author crina
  */
+@Entity
 public class Proprietaire extends Utilisateur {
     
-    private ArrayList<Propriete> liste_propiete;
+    private Collection<Propriete> liste_propiete;
     
     public Proprietaire(){
     }

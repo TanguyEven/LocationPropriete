@@ -6,17 +6,24 @@
 package persistence;
 
 import basiques.Adresse;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author crina
  */
+@Entity
 public class Agence {
     
+    @Id
     private int id;
     private String nom;
     private Adresse adresse;
 
+    public Agence(){
+        
+    }
     public Agence(int id, String nom, Adresse adresse) {
         this.id = id;
         this.nom = nom;

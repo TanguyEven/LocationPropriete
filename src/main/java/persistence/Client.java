@@ -5,10 +5,13 @@
  */
 package persistence;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author crina
  */
+@Entity
 public class Client extends Utilisateur{
     
     public Client(){

@@ -5,14 +5,24 @@
  */
 package persistence;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author crina
  */
+@Entity
 public class Newspaper {
     
     private String nom;
+    @Id
+    private Long id;
 
+    
+    public Newspaper(){
+        
+    }
     public Newspaper(String nom) {
         this.nom = nom;
     }
@@ -23,6 +33,14 @@ public class Newspaper {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     
