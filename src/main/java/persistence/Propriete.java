@@ -50,6 +50,10 @@ public class Propriete implements Serializable{
     }
     
 
+    public Propriete()
+    {
+        
+    }
     public Propriete(int loyer, Adresse adresse, int nb_chambre, int nb_sdb, int nb_autres_salles, String description) {
         this.loyer = loyer;
         this.adresse = adresse;

@@ -21,14 +21,12 @@
                         <h:panelGrid id="grid" columns="4" cellpadding="5">
                             <h:outputLabel for="name" value="Nom :" style="font-weight:bold"/>
                             <p:inputText id="name" value="#{connexionBean.name}" required="true" label="Name"/>
-                            <p:message for="name" />
-                            <h:outputText value="#{connexionBean.name}" />
+                        
+                           
                             
                             <h:outputLabel for="password" value="Mot de Passe" style="font-weight:bold"/>
                             <p:inputText id="password" value="#{connexionBean.mdp}" required="true" label="Name"/>
-                            <p:message for="password" />
-                            <h:outputText value="#{connexionBean.mdp}" />
-
+                           
                           
                         </h:panelGrid>
 

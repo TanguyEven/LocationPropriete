@@ -38,7 +38,7 @@ public class CatalogBean implements Serializable {
     private List<Propriete> items;
     private String id_propriete;
     private int loyer;
-    public Adresse adresse;
+    private Adresse adresse;
     private String status;
    
     private enum TypePropriete {maison,appartement};
