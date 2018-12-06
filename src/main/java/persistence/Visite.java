@@ -6,17 +6,26 @@
 package persistence;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author crina
  */
+@Entity
 public class Visite {
     
     private String lieu_rencontre;
     private String nom;
     private Date date;
+    @Id
+    private Long id;
 
+    
+    public Visite(){
+        
+    }
     public Visite(String lieu_de_rencontre, String nom, Date date) {
         this.lieu_rencontre = lieu_de_rencontre;
         this.nom = nom;
@@ -45,6 +54,14 @@ public class Visite {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     
