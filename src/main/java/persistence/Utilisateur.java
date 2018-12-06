@@ -37,6 +37,7 @@ public class Utilisateur implements Serializable {
     private String nom;
     private String date_naissance;
     private Adresse adresse;
+    private String role;
     @Lob
     private byte[] password; // salted + hashed password
     @Lob
@@ -119,6 +120,20 @@ public class Utilisateur implements Serializable {
      */
     public void setdate_naissance(String date_naissance) {
         this.date_naissance = date_naissance;
+    }
+    
+        /**
+     * @return the role
+     */
+    public String getrole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setrole(String role) {
+        this.role = role;
     }
 
 
